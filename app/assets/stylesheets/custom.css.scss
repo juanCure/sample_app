@@ -1,5 +1,16 @@
 @import "bootstrap";
 
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+ }
+
+
 /* universal */
 
 html {
@@ -94,3 +105,98 @@ footer {
     }
   }
 }
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  height: auto;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+#error_explanation {
+  color:#f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+ }
+/*** Estilo para el menu horizontal***/
+ul#menu-horizontal li {
+float: left;
+display: inline;
+position: relative;}
+
+ul#menu-horizontal ul {
+display: none;
+position: relative;
+top: 24;
+left:0;
+margin:0;
+padding:0;
+background:#FFFFFF;
+}
+
+ul#menu-horizontal ul li {
+display: block !important;
+}
+
+ul#menu-horizontal li:hover ul{
+display: none;
+}
+
+ul#menu-horizontal li:hover ul{
+display: block;
+}
+
+#menu-horizontal {
+width:500px;
+margin:0 auto;
+}
+
+#menu-horizontal li {
+margin:0 1px;
+width:98px;
+min-height:19px;
+text-align:center;
+background:#BBB;
+list-style:none;
+padding:2px 0;
+}
+
+#menu-horizontal li:hover {
+background:#C5014F;
+}
+
+#menu-horizontal li a {
+font:bold 11px Arial, Helvetica, sans-serif;
+color:#FFF;
+text-decoration:none;
+}
+
+#menu-horizontal li ul li{
+float:none;
+width:98px;
+margin:1px 0;
+}
+
+div.wrapper{
+	float:left;}
