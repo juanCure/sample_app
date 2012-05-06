@@ -13,7 +13,28 @@
 	   <% flash.each do |key,value| %>
 		<div class="alert alert-<%=key %>"><%=value%></div>
 		<%end%>
-      <%= yield %>
+		<div class= "wrapper">
+		<ul id="menu-horizontal">
+			<li><a href="#">Inicio</a></li>
+			<li><a href="#">Productos</a>
+			<ul>
+				<li><a href="#">Smartphones</a></li>
+				<li><a href="#">Tablets</a></li>
+				<li><a href="#">Accesorios</a></li>
+			</ul>
+			</li>
+			<li><a href="#">Nosotros</a>
+				<ul>
+					<li><a href="#">Quienes Somos</a></li>
+					<li><a href="#">Contacto</a></li>
+				</ul>
+			</li>
+			<li class="last"><a href="#"> Sucursales </a></li>
+		</ul>
+		</div>
+        <%=yield%>
+	  
+
 	  <%= render 'layouts/footer' %>
 	  <%= debug(params) if Rails.env.development? %>
     </div>
