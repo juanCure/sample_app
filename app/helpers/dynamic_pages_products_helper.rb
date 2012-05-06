@@ -1,0 +1,2 @@
+module DynamicPagesProductsHelper
+end
