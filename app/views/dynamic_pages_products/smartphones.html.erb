@@ -1,9 +1,41 @@
 <!--<h1>DynamicPagesProducts#smartphones</h1>
 <p>Find me in app/views/dynamic_pages_products/smartphones.html.erb</p>
--->
+
 <% provide(:title, 'SmartPhones') %>
 <h1>DynamicPagesProducts#smartphones</h1>
 <p>
   Esta sera la vista principal para visualizar smartphones
 </p>
+-->
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+		<!--sidebar content-->
+		
+		</div>
+		
+		<div class="span10">
+		<!--Body content-->
+		<h1>Listing Smartphones</h1>
+ 
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Precio</th>
+	<th>Modelo</th>
+	<th>Descripcion</th>
+  </tr>
+ 
+<% @smartphones.each do |phone| %>
+  <tr>
+    <td><%= phone.name %></td>
+	<td><%= phone.price %></td>
+	<td><%= phone.model %></td>
+    <td><%= phone.description %></td>
+  </tr>
+<% end %>
+</table>
 
+		</div>
+	</div>
+</div>

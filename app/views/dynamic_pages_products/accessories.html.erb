@@ -1,3 +1,24 @@
 <% provide(:title, 'Accessories') %>
-<h1>DynamicPagesProducts#accessories</h1>
+<!--<h1>DynamicPagesProducts#accessories</h1>
 <p>Find me in app/views/dynamic_pages_products/accessories.html.erb</p>
+-->
+
+<h1>Listing Accessories</h1>
+ 
+<table>
+  <tr>
+    <th>name</th>
+    <th>price</th>
+	<th>Model</th>
+	<th>mark</th>
+  </tr>
+ 
+<% @accessories.each do |accessory| %>
+  <tr>
+    <td><%= accessory.name %></td>
+	<td><%= accessory.price %></td>
+	<td><%= accessory.model %></td>
+    <td><%= accessory.description %></td>
+  </tr>
+<% end %>
+</table>
