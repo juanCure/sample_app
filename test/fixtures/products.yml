@@ -3,21 +3,21 @@ product1:
  mark: Nokia
  model: 800
  price: 7600
- description: Tamano de la pantalla 3.7
+ description: "Tamaño de la pantalla: 3.7"
  category: 1
- image: app\assets\images\image1
+ image: "app\assets\images\image1"
 product2:
  name: Lumia
  mark: Nokia
  model: 710
  price: 5000
- description: |
+ description: "|
               Tamano de la pantalla 3.7
               Tamano del sensor de la camara principal 5 megapíxeles
               Peso 126 g
               Tiempo maximo de conversacion 3G 7.6 h
               Tiempo maximo de espera 3G 400 h
               Tiempo maximo de reproduccion de musica 38 h
-              Tiempo maximo de reproduccion de video 6 h 
+              Tiempo maximo de reproduccion de video 6 h"
  category: 1
- image: app\assets\images\image2 
+ image: "app\assets\images\image2s"

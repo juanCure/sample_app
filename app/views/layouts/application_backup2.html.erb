@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "jquery", "application" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+	   <% flash.each do |key,value| %>
+		<div class="alert alert-<%=key %>"><%=value%></div>
+		<%end%>
+		<div class= "wrapper">
+		<ul id="menu-horizontal">
+			<li><a href="#">Inicio</a></li>
+			<li><a href="#">Productos</a>
+			<ul>
+				<li><%= link_to "Smartphones", smartphones_path%></li>
+				<li><%= link_to "Tablets", 	   tablets_path %></li>
+				<li><%= link_to "Accesorios",  accessories_path%></li>
+			</ul>
+			</li>
+			<li><a href="#">Nosotros</a>
+				<ul>
+					<li><a href="#">Quienes Somos</a></li>
+					<li><a href="#">Contacto</a></li>
+				</ul>
+			</li>
+			<li class="last"><a href="#"> Sucursales </a></li>
+		</ul>
+		</div>
+        <%=yield%>
+	  
+
+	  <%= render 'layouts/footer' %>
+	  <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>
+</html>

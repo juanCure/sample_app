@@ -3,22 +3,53 @@
 <p>Find me in app/views/dynamic_pages_products/accessories.html.erb</p>
 -->
 
-<h1>Listing Accessories</h1>
- 
-<table>
-  <tr>
-    <th>name</th>
-    <th>price</th>
-	<th>Model</th>
-	<th>mark</th>
-  </tr>
- 
-<% @accessories.each do |accessory| %>
-  <tr>
-    <td><%= accessory.name %></td>
-	<td><%= accessory.price %></td>
-	<td><%= accessory.model %></td>
-    <td><%= accessory.description %></td>
-  </tr>
-<% end %>
-</table>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Marcas</li>
+              <li class="active"><a href="#">Nokia</a></li>
+              <li><a href="#">Samsung</a></li>
+              <li><a href="#">Apple</a></li>
+              <li><a href="#">Blackberry</a></li>
+              <li class="nav-header">Modelos</li>
+              <li><a href="#">800</a></li>
+              <li><a href="#">710</a></li>
+              <li><a href="#">N9</a></li>
+              <li><a href="#">S II</a></li>
+              <li><a href="#">Ace</a></li>
+              <li><a href="#">4</a></li>
+              <li class="nav-header">Precios</li>
+              <li><a href="#">1500 a 2500</a></li>
+              <li><a href="#">2500 a 3500</a></li>
+              <li><a href="#">3500 a 4500</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">        
+          <div class="row-fluid">
+		  <% @accessories.each do |accessory| %>
+			<div class="span4">
+				<div class="itemMedia">
+					<img src="<%= raw accessory.image %>" style="height:110px;width:160px;border-width:0px;"/>
+				</div>
+				<div class="itemInfo">
+					<h2><%= accessory.mark %></h2>
+					<h3><%= accessory.name %></h3>
+					<div> $
+						<span><%= accessory.price %></span>
+					</div>
+					<div>
+						<%= accessory.description %>
+					</div>
+				</div>
+			</div> <!--/span4-->
+			<% end %>
+		  </div><!--/row-->
+		  <%= will_paginate @accessories%>
+		</div> <!--/span10-->
+		</div> <!--/row-fluid-->
+      <hr>
+
+    </div><!--/.fluid-container-->

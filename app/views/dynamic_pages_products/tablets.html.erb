@@ -2,22 +2,53 @@
 <!--<h1>DynamicPagesProducts#tablets</h1>
 <p>Find me in app/views/dynamic_pages_products/tablets.html.erb</p>
 -->
-<h1>Listing Tablets</h1>
- 
-<table>
-  <tr>
-    <th>name</th>
-    <th>price</th>
-	<th>Model</th>
-	<th>mark</th>
-  </tr>
- 
-<% @tablets.each do |tablet| %>
-  <tr>
-    <td><%= tablet.name %></td>
-	<td><%= tablet.price %></td>
-	<td><%= tablet.model %></td>
-    <td><%= tablet.description %></td>
-  </tr>
-<% end %>
-</table>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Marcas</li>
+              <li class="active"><a href="#">Nokia</a></li>
+              <li><a href="#">Samsung</a></li>
+              <li><a href="#">Apple</a></li>
+              <li><a href="#">Blackberry</a></li>
+              <li class="nav-header">Modelos</li>
+              <li><a href="#">800</a></li>
+              <li><a href="#">710</a></li>
+              <li><a href="#">N9</a></li>
+              <li><a href="#">S II</a></li>
+              <li><a href="#">Ace</a></li>
+              <li><a href="#">4</a></li>
+              <li class="nav-header">Precios</li>
+              <li><a href="#">1500 a 2500</a></li>
+              <li><a href="#">2500 a 3500</a></li>
+              <li><a href="#">3500 a 4500</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">        
+          <div class="row-fluid">
+		  <% @tablets.each do |tablet| %>
+			<div class="span4">
+				<div class="itemMedia">
+					<img src="<%= raw tablet.image %>" style="height:110px;width:160px;border-width:0px;"/>
+				</div>
+				<div class="itemInfo">
+					<h2><%= tablet.mark %></h2>
+					<h3><%= tablet.name %></h3>
+					<div> $
+						<span><%= tablet.price %></span>
+					</div>
+					<div>
+						<%= tablet.description %>
+					</div>
+				</div>
+			</div> <!--/span4-->
+			<% end %>
+		  </div><!--/row-->
+		  <%= will_paginate @tablets%>
+		</div> <!--/span10-->
+		</div> <!--/row-fluid-->
+      <hr>
+
+    </div><!--/.fluid-container-->

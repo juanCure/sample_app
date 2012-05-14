@@ -140,6 +140,7 @@ input, textarea, select, .uneditable-input {
   @extend .error;
  }
 /*** Estilo para el menu horizontal***/
+
 ul#menu-horizontal li {
 float: left;
 display: inline;
@@ -197,6 +198,6 @@ float:none;
 width:98px;
 margin:1px 0;
 }
-
-div.wrapper{
-	float:left;}
+.wrapper{position:absolute;
+		top:50px;
+		left:50px;}

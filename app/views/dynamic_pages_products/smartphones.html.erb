@@ -1,41 +1,67 @@
-<!--<h1>DynamicPagesProducts#smartphones</h1>
-<p>Find me in app/views/dynamic_pages_products/smartphones.html.erb</p>
-
 <% provide(:title, 'SmartPhones') %>
-<h1>DynamicPagesProducts#smartphones</h1>
-<p>
-  Esta sera la vista principal para visualizar smartphones
-</p>
--->
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span2">
-		<!--sidebar content-->
-		
-		</div>
-		
-		<div class="span10">
-		<!--Body content-->
-		<h1>Listing Smartphones</h1>
- 
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Precio</th>
-	<th>Modelo</th>
-	<th>Descripcion</th>
-  </tr>
- 
-<% @smartphones.each do |phone| %>
-  <tr>
-    <td><%= phone.name %></td>
-	<td><%= phone.price %></td>
-	<td><%= phone.model %></td>
-    <td><%= phone.description %></td>
-  </tr>
-<% end %>
-</table>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+	  
+    </style>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Marcas</li>
+              <li class="active"><%= link_to "Nokia", smartphones_path(:mark => "Nokia") %></li>
+              <li><%= link_to "Samsung", smartphones_path(:mark => "Samsung") %></li>
+              <li><%= link_to "Apple", smartphones_path(:mark => "Apple") %></li>
+              <li><%= link_to "Blackberry", smartphones_path(:mark => "Blackberry") %></li>
+              <li class="nav-header">Modelos</li>
+              <li><%= link_to "800", smartphones_path(:model => "800") %></li>
+              <li><%= link_to "710", smartphones_path(:model => "710") %></li>
+              <li><%= link_to "N9", smartphones_path(:model => "N9") %></li>
+              <li><%= link_to "S II", smartphones_path(:model => "S II") %></li>
+              <li><%= link_to "Ace", smartphones_path(:model => "Ace") %></li>
+              <li><%= link_to "4", smartphones_path(:model => "4") %></li>
+              <li class="nav-header">Precios</li>
+              <li><%= link_to "1500 a 2500", smartphones_path(:start_price => "1500", :end_price => "2500") %></li>
+              <li><%= link_to "2500 a 3500", smartphones_path(:start_price => "2500", :end_price => "3500") %></li>
+              <li><%= link_to "3500 a 4500", smartphones_path(:start_price => "3500", :end_price => "4500") %></li>
+			  <li><%= link_to "Mayor a $4500", smartphones_path(:start_price => "4500", :end_price => "16000") %></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">        
+          <div class="row-fluid">
+		  <% @smartphones.each do |smartphone| %>
+			<div class="span4">
+				<div class="itemMedia">
+					<img src="<%= raw smartphone.image %>" style="height:110px;width:160px;border-width:0px;"/>
+				</div>
+				<div class="itemInfo">
+					<h2><%= smartphone.mark %></h2>
+					<h3><%= smartphone.name %></h3>
+					<div> $
+						<span><%= smartphone.price %></span>
+					</div>
+					<div>
+						<%= smartphone.description %>
+					</div>
+				</div>
+			</div> <!--/span4-->
+			<% end %>
+		  </div><!--/row-->
+		  <%= will_paginate @smartphones%>
+		  <% if @smartphones.empty? %>
+			<div class="aviso">
+			<em> No tenemos existencias de esta marca por el momento </em>
+			</div>
+		  <% end %>
+		</div> <!--/span10-->
+		</div> <!--/row-fluid-->
+      <hr>
 
-		</div>
-	</div>
-</div>
+    </div><!--/.fluid-container-->
