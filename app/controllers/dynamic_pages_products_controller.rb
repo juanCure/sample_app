@@ -18,11 +18,11 @@ class DynamicPagesProductsController < ApplicationController
 
   def tablets
 	#@tablets = Product.select("name, price, model, description").where("category = 2")
-	@tablets = Product.where("category = 2").paginate(page: params[:page])
+	@tablets = Product.where("category = 3").paginate(page: params[:page])
   end
 
   def accessories
 	#@accessories = Product.select("name, price, model, description").where("category = 3")
-	@accessories = Product.where("category = 3").paginate(page: params[:page])
+	@accessories = Product.where("category = 4 OR category = 2").paginate(page: params[:page])
   end
 end

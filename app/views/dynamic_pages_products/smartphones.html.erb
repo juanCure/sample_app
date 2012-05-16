@@ -1,7 +1,19 @@
-<script type="text/javascript">
+﻿<script type="text/javascript">
 	$(function() {
-		alert('Estoy utilizando jQuery en Rails!!!');
-		//$('.center.hero-unit > div').addClass('wrapper');
+		$('.description').each(function() {
+			var lista = "<ul>";
+			var prev = $(this).html();
+			var str = prev.replace(/\s([A-Z])/g, ",$1");
+			var arreglo = str.split(",");
+			for(var i = 1; i < arreglo.length; i++) {
+				lista += "<li>" + arreglo[i] + "</li>";
+			}
+			lista += "</ul>";
+			$(this).html(lista);
+			
+		});
+		
+		
 	});
 </script>
 <% provide(:title, 'SmartPhones') %>
@@ -13,6 +25,8 @@
       .sidebar-nav {
         padding: 9px 0;
       }
+
+	
 	  
     </style>
     <div class="container-fluid">
@@ -40,27 +54,33 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span10">        
-          <div class="row-fluid">
+        <!--<div class="span10">-->        
+          <ul id="homeItems">
 		  <% @smartphones.each do |smartphone| %>
-			<div class="span4">
+		  	<li>
+			<div class="catItem">
 				<div class="itemMedia">
 					<img src="<%= raw smartphone.image %>" style="height:110px;width:160px;border-width:0px;"/>
 				</div>
 				<div class="itemInfo">
-					<h2><%= smartphone.mark %></h2>
-					<h3><%= smartphone.name %></h3>
-					<div> $
-						<span><%= smartphone.price %></span>
+					<h3><%= smartphone.mark%> <%=smartphone.name%> <%= smartphone.model%></h3>
+					<div class="precio">
+						<div>  $
+							<span><%= smartphone.price %></span>
+						</div>
+						<h4> Compralo Ya </h4> 
 					</div>
-					<div>
+					<!--
+					<div class="description">
 						<%= smartphone.description %>
 					</div>
+				-->
 				</div>
-			</div> <!--/span4-->
+			</div> <!--/catItem-->
+			</li>
 			<% end %>
-		  </div><!--/row-->
-		  <%= will_paginate @smartphones%>
+		  </ul><!--/homeItems-->
+		  
 		  <% if @smartphones.empty? %>
 			<div class="aviso">
 			<em> No tenemos existencias de esta marca por el momento </em>
@@ -69,5 +89,5 @@
 		</div> <!--/span10-->
 		</div> <!--/row-fluid-->
       <hr>
-
+	<%= will_paginate @smartphones%>
     </div><!--/.fluid-container-->
