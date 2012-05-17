@@ -6,10 +6,12 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
+    
 	<style type="text/css">
 		div.myclass{margin-top:100px}
 		body{background-color: #EAECEE}
 	</style>
+	
   </head>
   <body>
     <%= render 'layouts/header' %>
@@ -19,21 +21,21 @@
 		<%end%>
 		<div class= "wrapper" style="margin-top:6em">
 		<ul id="menu-horizontal">
-			<li><a href="#">Inicio</a></li>
-			<li><a href="#">Productos</a>
+			<li class="btn btn-large btn-primary"><%= link_to "Inicio", root_path %></li>
+			<li class="btn btn-large btn-primary"><a href="#">Productos</a>
 			<ul>
 				<li><%= link_to "Smartphones", smartphones_path%></li>
 				<li><%= link_to "Tablets", 	   tablets_path %></li>
 				<li><%= link_to "Accesorios",  accessories_path%></li>
 			</ul>
 			</li>
-			<li><a href="#">Nosotros</a>
+			<li class="btn btn-large btn-primary"><a href="#">Nosotros</a>
 				<ul>
-					<li><a href="#">Quienes Somos</a></li>
-					<li><a href="#">Contacto</a></li>
+					<li><%= link_to "Quienes Somos", about_path %></li>
+					<li><%= link_to "Contacto", contact_path %></li>
 				</ul>
 			</li>
-			<li class="last"><a href="#"> Sucursales </a></li>
+			<li class="last btn btn-large btn-primary"><%= link_to "Sucursales", sucursales_path %></li>
 		</ul>
 		</div>
         <%=yield%>

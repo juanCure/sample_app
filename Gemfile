@@ -20,6 +20,11 @@ group :development, :test do
   gem 'factory_girl_rails', '1.4.0'
 end
 
+group :production do
+  gem 'pg', '0.12.2'
+  gem 'thin'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,9 +40,7 @@ end
 
 gem 'jquery-rails', '2.0.0'
 
-group :production do
-  gem 'pg', '0.12.2'
-end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

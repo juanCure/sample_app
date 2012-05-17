@@ -10,7 +10,14 @@ SampleApp::Application.routes.draw do
   match '/tablets', 	to: 'dynamic_pages_products#tablets'
   match '/accessories', to: 'dynamic_pages_products#accessories'
 
-  resources :products
+  resources :products  
+  #Creando mis rutas nombradas para nuevas vistas de static_pages
+  
+  match '/aviso',    to: 'static_pages#aviso'
+  match '/uso',    to: 'static_pages#uso'
+  match '/sitio',    to: 'static_pages#sitio'
+  match '/sucursales',    to: 'static_pages#sucursales'
+    
 
   #get "users/new"
   resources :users

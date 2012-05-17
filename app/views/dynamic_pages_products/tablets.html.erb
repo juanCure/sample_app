@@ -8,47 +8,55 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Marcas</li>
-              <li class="active"><a href="#">Nokia</a></li>
-              <li><a href="#">Samsung</a></li>
-              <li><a href="#">Apple</a></li>
-              <li><a href="#">Blackberry</a></li>
+              <li class="active"><%= link_to "Nokia", tablets_path(:mark => "Nokia") %></li>
+              <li><%= link_to "Samsung", tablets_path(:mark => "Samsung") %></li>
+              <li><%= link_to "Apple", tablets_path(:mark => "Apple") %></li>
+              <li><%= link_to "Blackberry", tablets_path(:mark => "Blackberry") %></li>
+              <li><%= link_to "Sony", tablets_path(:mark => "Sony") %></li>
               <li class="nav-header">Modelos</li>
-              <li><a href="#">800</a></li>
-              <li><a href="#">710</a></li>
-              <li><a href="#">N9</a></li>
-              <li><a href="#">S II</a></li>
-              <li><a href="#">Ace</a></li>
-              <li><a href="#">4</a></li>
+              <li><%= link_to "Galaxy", tablets_path(:model => "Galaxy") %></li>
+              <li><%= link_to "SGPT111", tablets_path(:model => "SGPT111") %></li>
+              <li><%= link_to "SGPT132", tablets_path(:model => "SGPT132") %></li>
+              <li><%= link_to "PRD-38548", tablets_path(:model => "PRD-38548") %></li>
+              <li><%= link_to "ipad", tablets_path(:model => "ipad") %></li>
+              <li><%= link_to "770", tablets_path(:model => "770") %></li>
+              <li><%= link_to "800", tablets_path(:model => "800") %></li>
               <li class="nav-header">Precios</li>
-              <li><a href="#">1500 a 2500</a></li>
-              <li><a href="#">2500 a 3500</a></li>
-              <li><a href="#">3500 a 4500</a></li>
+              <li><%= link_to "$3000 a $4500", tablets_path(:start_price => "3000", :end_price => "4500") %></li>
+              <li><%= link_to "$4500 a $6500", tablets_path(:start_price => "4500", :end_price => "6500") %></li>
+              <li><%= link_to "$6500 a $8500", tablets_path(:start_price => "6500", :end_price => "8500") %></li>
+              <li><%= link_to "Mayor a $8500", tablets_path(:start_price => "8500", :end_price => "16000") %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span10">        
-          <div class="row-fluid">
+        <br/><br/>
+          <ul id="homeItems">
 		  <% @tablets.each do |tablet| %>
-			<div class="span4">
+		  	<li>
+			<div class="catItem">
 				<div class="itemMedia">
 					<img src="<%= raw tablet.image %>" style="height:110px;width:160px;border-width:0px;"/>
 				</div>
 				<div class="itemInfo">
-					<h2><%= tablet.mark %></h2>
-					<h3><%= tablet.name %></h3>
-					<div> $
-						<span><%= tablet.price %></span>
-					</div>
-					<div>
-						<%= tablet.description %>
+					<h3><%= tablet.mark%> <%=tablet.name%> <%= tablet.model%></h3>
+					<div class="precio">
+						<div>  $
+							<span><%= tablet.price %></span>
+						</div>
+						<h4> Compralo Ya </h4> 
 					</div>
 				</div>
-			</div> <!--/span4-->
+			</div> <!--/catItem-->
+			</li>
 			<% end %>
-		  </div><!--/row-->
-		  <%= will_paginate @tablets%>
-		</div> <!--/span10-->
+		  </ul><!--/homeItems-->
+		  
+		  <% if @tablets.empty? %>
+			<div class="aviso">
+			<em> No tenemos existencias de esta marca por el momento </em>
+			</div>
+		  <% end %>
 		</div> <!--/row-fluid-->
       <hr>
-
-    </div><!--/.fluid-container-->
+	<%= will_paginate @tablets%>
+</div><!--/.fluid-container-->

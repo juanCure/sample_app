@@ -9,47 +9,50 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Marcas</li>
-              <li class="active"><a href="#">Nokia</a></li>
-              <li><a href="#">Samsung</a></li>
-              <li><a href="#">Apple</a></li>
-              <li><a href="#">Blackberry</a></li>
-              <li class="nav-header">Modelos</li>
-              <li><a href="#">800</a></li>
-              <li><a href="#">710</a></li>
-              <li><a href="#">N9</a></li>
-              <li><a href="#">S II</a></li>
-              <li><a href="#">Ace</a></li>
-              <li><a href="#">4</a></li>
+              <li class="active"><%= link_to "Nokia", accessories_path(:mark => "Nokia") %></li>
+              <li><%= link_to "Samsung", accessories_path(:mark => "Samsung") %></li>
+              <li><%= link_to "Apple", accessories_path(:mark => "Apple") %></li>
+              <li><%= link_to "Blackberry", accessories_path(:mark => "Blackberry") %></li>
+              <li><%= link_to "Sony", accessories_path(:mark => "Sony") %></li>
+              <li class="nav-header">Tipos</li>
+              <li><%= link_to "Accesorios para Tablets", accessories_path(:model => "2") %></li>
+              <li><%= link_to "Accesorios para Smartphones", accessories_path(:model => "4") %></li>
               <li class="nav-header">Precios</li>
-              <li><a href="#">1500 a 2500</a></li>
-              <li><a href="#">2500 a 3500</a></li>
-              <li><a href="#">3500 a 4500</a></li>
+              <li><%= link_to "$150 a $250", accessories_path(:start_price => "150", :end_price => "250") %></li>
+              <li><%= link_to "$250 a $350", accessories_path(:start_price => "4500", :end_price => "6500") %></li>
+              <li><%= link_to "$350 a $450", accessories_path(:start_price => "6500", :end_price => "8500") %></li>
+              <li><%= link_to "Mayor a $450", accessories_path(:start_price => "8500", :end_price => "16000") %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span10">        
-          <div class="row-fluid">
+        <br/><br/>
+          <ul id="homeItems">
 		  <% @accessories.each do |accessory| %>
-			<div class="span4">
+		  	<li>
+			<div class="catItem">
 				<div class="itemMedia">
 					<img src="<%= raw accessory.image %>" style="height:110px;width:160px;border-width:0px;"/>
 				</div>
 				<div class="itemInfo">
-					<h2><%= accessory.mark %></h2>
-					<h3><%= accessory.name %></h3>
-					<div> $
-						<span><%= accessory.price %></span>
-					</div>
-					<div>
-						<%= accessory.description %>
+					<h3><%= accessory.mark%> <%=accessory.name%> <%= accessory.model%></h3>
+					<div class="precio">
+						<div>  $
+							<span><%= accessory.price %></span>
+						</div>
+						<h4> Compralo Ya </h4> 
 					</div>
 				</div>
-			</div> <!--/span4-->
+			</div> <!--/catItem-->
+			</li>
 			<% end %>
-		  </div><!--/row-->
-		  <%= will_paginate @accessories%>
-		</div> <!--/span10-->
+		  </ul><!--/homeItems-->
+		  
+		  <% if @accessories.empty? %>
+			<div class="aviso">
+			<em> No tenemos existencias de esta marca por el momento </em>
+			</div>
+		  <% end %>
 		</div> <!--/row-fluid-->
       <hr>
-
-    </div><!--/.fluid-container-->
+	<%= will_paginate @accessories%>
+</div><!--/.fluid-container-->
