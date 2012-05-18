@@ -32,7 +32,7 @@
 			<div class="catItem">
 				<div class="itemMedia">
 					<!--<img src="<%= raw accessory.image %>" style="height:110px;width:160px;border-width:0px;"/>-->
-					<%= image_tag(accessory.image, size:"160x110")%>
+					<%= image_tag accessory.image, size:"160x110"%>
 				</div>
 				<div class="itemInfo">
 					<h3><%= accessory.mark%> <%=accessory.name%> <%= accessory.model%></h3>
