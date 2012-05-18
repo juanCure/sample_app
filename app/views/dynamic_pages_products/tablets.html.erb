@@ -35,7 +35,8 @@
 		  	<li>
 			<div class="catItem">
 				<div class="itemMedia">
-					<img src="<%= raw tablet.image %>" style="height:110px;width:160px;border-width:0px;"/>
+					<!--<img src="<%= raw tablet.image %>" style="height:110px;width:160px;border-width:0px;"/>-->
+					<%= image_tag(tablet.image, size:"160x110")%>
 				</div>
 				<div class="itemInfo">
 					<h3><%= tablet.mark%> <%=tablet.name%> <%= tablet.model%></h3>
@@ -43,7 +44,7 @@
 						<div>  $
 							<span><%= tablet.price %></span>
 						</div>
-						<h4> Compralo Ya </h4> 
+						<p><%= link_to "Más detalles", product_path(tablet.id), class: "btn btn-primary btn-large"%></p>
 					</div>
 				</div>
 			</div> <!--/catItem-->

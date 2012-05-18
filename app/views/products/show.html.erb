@@ -1,4 +1,25 @@
-<p id="notice"><%= notice %></p>
+﻿<script type="text/javascript">
+	$(function() {
+		$('#descripcion p').each(function() {
+			var lista = "<ul id='caracteristicas'>";
+			var prev = $(this).html();
+			var str = prev.replace(/\s([A-Z])/g, ",$1");
+			var arreglo = str.split(",");
+			for(var i = 0; i < arreglo.length; i++) {
+				lista += "<li>" + arreglo[i] + "</li>";
+			}
+			lista += "</ul>";
+			$(this).html(lista);
+			
+		});
+		
+		
+	});
+</script>
+<style type="text/css">
+	
+</style>
+<!--<p id="notice"><%= notice %></p>
 
 <p>
   <b>Name:</b>
@@ -38,3 +59,25 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+-->
+
+<div class="row">
+	<div class="span12">
+		<div class="itemMedia">
+			<!--<img src="<%= raw @product.image %>" style="height:110px;width:160px;border-width:0px;"/>-->
+			<%= image_tag(@product.image, size:"160x110")%>
+		</div>	
+		<div class="itemInfo">
+			<div class="span4">
+				<h1> <%= @product.mark%> <%= @product.name%> <%= @product.model%></h1>
+				<div class="precio">
+					$
+					<span> <%= @product.price%></span>
+				</div>
+				<div id="descripcion" class="span6">
+					<p><%= @product.description%></p>
+				</div>
+			</div>	
+		</div>	
+	</div>
+</div>

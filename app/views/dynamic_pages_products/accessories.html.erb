@@ -19,9 +19,9 @@
               <li><%= link_to "Accesorios para Smartphones", accessories_path(:model => "4") %></li>
               <li class="nav-header">Precios</li>
               <li><%= link_to "$150 a $250", accessories_path(:start_price => "150", :end_price => "250") %></li>
-              <li><%= link_to "$250 a $350", accessories_path(:start_price => "4500", :end_price => "6500") %></li>
-              <li><%= link_to "$350 a $450", accessories_path(:start_price => "6500", :end_price => "8500") %></li>
-              <li><%= link_to "Mayor a $450", accessories_path(:start_price => "8500", :end_price => "16000") %></li>
+              <li><%= link_to "$250 a $350", accessories_path(:start_price => "250", :end_price => "350") %></li>
+              <li><%= link_to "$350 a $450", accessories_path(:start_price => "350", :end_price => "450") %></li>
+              <li><%= link_to "Mayor a $450", accessories_path(:start_price => "450", :end_price => "2500") %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -31,7 +31,8 @@
 		  	<li>
 			<div class="catItem">
 				<div class="itemMedia">
-					<img src="<%= raw accessory.image %>" style="height:110px;width:160px;border-width:0px;"/>
+					<!--<img src="<%= raw accessory.image %>" style="height:110px;width:160px;border-width:0px;"/>-->
+					<%= image_tag(accessory.image, size:"160x110")%>
 				</div>
 				<div class="itemInfo">
 					<h3><%= accessory.mark%> <%=accessory.name%> <%= accessory.model%></h3>
@@ -39,7 +40,7 @@
 						<div>  $
 							<span><%= accessory.price %></span>
 						</div>
-						<h4> Compralo Ya </h4> 
+						<p><%= link_to "Más detalles", product_path(accessory.id), class: "btn btn-primary btn-large"%></p>
 					</div>
 				</div>
 			</div> <!--/catItem-->

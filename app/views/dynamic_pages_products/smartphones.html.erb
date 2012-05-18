@@ -49,7 +49,8 @@
 		  	<li>
 			<div class="catItem">
 				<div class="itemMedia">
-					<img src="<%= raw smartphone.image %>" style="height:110px;width:160px;border-width:0px;"/>
+					<!--<img src="<%= raw smartphone.image %>" style="height:110px;width:160px;border-width:0px;"/>-->
+					<%= image_tag(smartphone.image, size:"160x110")%>
 				</div>
 				<div class="itemInfo">
 					<h3><%= smartphone.mark%> <%=smartphone.name%> <%= smartphone.model%></h3>
@@ -57,7 +58,8 @@
 						<div>  $
 							<span><%= smartphone.price %></span>
 						</div>
-						<p><a class="btn btn-primary btn-large">Más Detalles</a></p> 
+						<!--<p><a class="btn btn-primary btn-large" href="#">Más Detalles a  articulo <%= smartphone.id%></a></p>--> 
+						<p><%= link_to "Más detalles", product_path(smartphone.id), class: "btn btn-primary btn-large"%></p>
 					</div>
 				</div>
 				<!--
