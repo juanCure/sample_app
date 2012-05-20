@@ -203,7 +203,18 @@ background-color: #1A1D23
 		left:205px;}
 
 /*Estilos para la vista smartphones*/
+.container .cart_title{
+  font: 120% bold;
+}
 
+.container .item_price, .container .total_line {
+  text-align: right;
+}
+
+.container .total_line .total_cell{
+  font-weight: bold;
+  boder-top: 1px solid #595;
+}
   
 
 		

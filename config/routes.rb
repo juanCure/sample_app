@@ -1,4 +1,8 @@
 SampleApp::Application.routes.draw do
+  resources :line_items
+
+  resources :carts
+
   #Esto me lo agrego Rails automaticamente al crear el DynamicPagesProducts controller
   #get "dynamic_pages_products/smartphones"
   #get "dynamic_pages_products/tablets"

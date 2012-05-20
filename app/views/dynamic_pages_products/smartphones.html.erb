@@ -1,21 +1,3 @@
-﻿<script type="text/javascript">
-	/*$(function() {
-		$('.description').each(function() {
-			var lista = "<ul id='caracteristicas'>";
-			var prev = $(this).html();
-			var str = prev.replace(/\s([A-Z])/g, ",$1");
-			var arreglo = str.split(",");
-			for(var i = 1; i < 4; i++) {
-				lista += "<li>" + arreglo[i] + "</li>";
-			}
-			lista += "</ul>";
-			$(this).html(lista);
-			
-		});
-		
-		
-	});*/
-</script>
 <% provide(:title, 'SmartPhones') %>
 <div class="container-fluid">
 	<div class="row-fluid">
@@ -50,7 +32,7 @@
 			<div class="catItem">
 				<div class="itemMedia">
 					<!--<img src="<%= raw smartphone.image %>" style="height:110px;width:160px;border-width:0px;"/>-->
-					<%= image_tag smartphone.image%>
+					<%= link_to image_tag(smartphone.image), line_items_path(:product_id => smartphone), :method => :post%>
 				</div>
 				<div class="itemInfo">
 					<h3><%= smartphone.mark%> <%=smartphone.name%> <%= smartphone.model%></h3>
@@ -60,6 +42,7 @@
 						</div>
 						<!--<p><a class="btn btn-primary btn-large" href="#">Más Detalles a  articulo <%= smartphone.id%></a></p>--> 
 						<p><%= link_to "Más detalles", product_path(smartphone.id), class: "btn btn-primary btn-large"%></p>
+						<%= button_to 'Agregar al carrito', line_items_path(:product_id => smartphone)%>
 					</div>
 				</div>
 				<!--
