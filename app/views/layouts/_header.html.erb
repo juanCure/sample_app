@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top">
+ <header class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <!--<%= link_to "sample app", '#', id: "logo" %>-->
@@ -7,8 +7,6 @@
 		  </div>
           <nav>
             <ul class="nav pull-right">
-              <li><%= link_to "Inicio",    root_path %></li>
-              <li><%= link_to "Ayuda",    help_path %></li>
 			  <% if signed_in? %>
 			  <!--
               <li><%= link_to "Users", '#' %></li>
@@ -26,14 +24,20 @@
               </ul>
             </li>
            -->
-                <li>
-                  <%= link_to "Cerrar Sesión", signout_path, method: "delete" %>
-                </li>
+            <li><%= link_to root_path do%>
+            	<i class="icon-user icon-white"></i> <%= current_user.name%>
+            <% end%>
+            </li>
+            <li><%= link_to "Cerrar Sesión", signout_path, method: "delete" %> </li>
           <% else %>
+            <li><%= link_to "¿Usuario nuevo?", signup_path %></li>
             <li><%= link_to "Iniciar Sesión", signin_path %></li>
           <% end %>
             </ul>
           </nav>
+          <!--<div id="carrito_compras">
+          	<button class="btn">
+          </div>-->
         </div>
       </div>
 </header>

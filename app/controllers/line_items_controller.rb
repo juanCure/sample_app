@@ -40,6 +40,7 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.xml
   def create
+    # No importa la vista donde proviene la peticion, este codigo es el mismo
     @cart = current_cart
     product = Product.find(params[:product_id])
     #@line_item = @cart.line_items.build(:product => product, :cart => @cart)

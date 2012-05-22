@@ -16,7 +16,7 @@ class CartsController < ApplicationController
     begin
       @cart = Cart.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      logger.error "Attemt to access invalid cart #{params[:id]}"
+      logger.error "Intentas accesar a un carrito invalido #{params[:id]}"
       redirect_to smartphones_url, :notice => 'Carro Invalido'
     else
       respond_to do |format|
@@ -83,8 +83,8 @@ class CartsController < ApplicationController
     session[:cart_id] = nil
     
     respond_to do |format|
-      format.html {redirect_to(smartphones_url,
-         :notice => 'Tu carrito esta vacio')}
+      format.html {redirect_to(root_url,
+         :notice => 'Tu carrito esta actualmente vacio')}
       format.xml {head :ok}
     end
   end

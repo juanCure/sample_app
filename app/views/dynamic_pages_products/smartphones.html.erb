@@ -5,10 +5,11 @@
 			<div class="well sidebar-nav">
             	<ul class="nav nav-list">
               		<li class="nav-header">Marcas</li>
-              		<li class="active"><%= link_to "Nokia", smartphones_path(:mark => "Nokia") %></li>
+              		<li ><%= link_to "Nokia", smartphones_path(:mark => "Nokia") %></li>
               		<li><%= link_to "Samsung", smartphones_path(:mark => "Samsung") %></li>
               		<li><%= link_to "Apple", smartphones_path(:mark => "Apple") %></li>
               		<li><%= link_to "Blackberry", smartphones_path(:mark => "Blackberry") %></li>
+              		<li><%= link_to "Sony", smartphones_path(:mark => "Sony") %></li>
               		<li class="nav-header">Modelos</li>
               		<li><%= link_to "800", smartphones_path(:model => "800") %></li>
               		<li><%= link_to "710", smartphones_path(:model => "710") %></li>
@@ -25,7 +26,7 @@
 			</div><!--/.well -->
         </div><!--/span-->
         <!--<div class="span10">-->
-        	<br/><br/>         
+        	<br /><br /><br />        
           <ul id="homeItems">
 		  <% @smartphones.each do |smartphone| %>
 		  	<li>
@@ -42,7 +43,10 @@
 						</div>
 						<!--<p><a class="btn btn-primary btn-large" href="#">Más Detalles a  articulo <%= smartphone.id%></a></p>--> 
 						<p><%= link_to "Más detalles", product_path(smartphone.id), class: "btn btn-primary btn-large"%></p>
-						<%= button_to 'Agregar al carrito', line_items_path(:product_id => smartphone)%>
+						<!--<%= button_to 'Agregar al carrito', line_items_path(:product_id => smartphone), class: "btn btn-primary btn-large"%>-->
+						<%= link_to  line_items_path(:product_id => smartphone), class: "btn btn-primary btn-large", :method => :post do%>
+						<i class="icon-shopping-cart icon-white"></i> Agregar al carrito 
+            			<% end%>
 					</div>
 				</div>
 				<!--

@@ -14,10 +14,10 @@
   
   <!-- Carousel items -->
     <div class="carousel-inner">
-    <div class="active item"> <%= image_tag "carousel/banner1.jpg"%></div>
-    <div class="item"> <%= image_tag "carousel/banner2.jpg"%></div>
-    <div class="item"> <%= image_tag "carousel/banner3.jpg"%></div>
-    <div class="item"> <%= image_tag "carousel/banner4.jpg"%></div>
+    <div class="active item"> <a href="products/12"><%= image_tag "carousel/banner1.jpg"%></a></div>
+    <div class="item"> <a href="products/4"><%= image_tag "carousel/banner2.jpg"%></a></div>
+    <div class="item"> <a href="products/3"><%= image_tag "carousel/banner3.jpg"%></a></div>
+    <div class="item"> <a href="products/14"><%= image_tag "carousel/banner4.jpg"%></a></div>
   
     </div>
     <!-- Carousel nav -->
@@ -44,7 +44,7 @@
           <h2>iPad3 64GB </h2>
 		   <img src="assets/novedades/imagen37.png" />
            <p>LLevate lo mejor de las tablets </p>
-           <p><a href="#" class="btn btn-primary btn-large">Mas detalles</a></p> 
+           <p><%= link_to "Más detalles", product_path(32), class: "btn btn-primary btn-large"%></p> 
         </div>
       </div>
  

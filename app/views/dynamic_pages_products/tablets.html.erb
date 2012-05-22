@@ -27,7 +27,7 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <br/><br/>
+        <br /><br /><br />
           <ul id="homeItems">
 		  <% @tablets.each do |tablet| %>
 		  	<li>
@@ -43,6 +43,10 @@
 							<span><%= tablet.price %></span>
 						</div>
 						<p><%= link_to "Más detalles", product_path(tablet.id), class: "btn btn-primary btn-large"%></p>
+						<!--<%= button_to 'Agregar al carrito', line_items_path(:product_id => tablet), class: "btn btn-primary btn-large"%>-->
+						<%= link_to  line_items_path(:product_id => tablet), class: "btn btn-primary btn-large", :method => :post do%>
+						<i class="icon-shopping-cart icon-white"></i> Agregar al carrito 
+						<% end%>
 					</div>
 				</div>
 			</div> <!--/catItem-->

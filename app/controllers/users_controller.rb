@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       # Handle a successful save.
 	  sign_in @user
 	  flash[:success] = "Bienvenido a Mobile"
-	  redirect_to @user
+	  redirect_to root_url
     else
       render 'new'
     end

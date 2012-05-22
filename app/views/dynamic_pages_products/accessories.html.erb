@@ -25,7 +25,7 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <br/><br/>
+        <br/><br/><br/>
           <ul id="homeItems">
 		  <% @accessories.each do |accessory| %>
 		  	<li>
@@ -36,11 +36,17 @@
 				</div>
 				<div class="itemInfo">
 					<h3><%= accessory.mark%> <%=accessory.name%> <%= accessory.model%></h3>
+					<br /> <br />
 					<div class="precio">
 						<div>  $
 							<span><%= accessory.price %></span>
 						</div>
+						<br /> <br />
 						<p><%= link_to "Más detalles", product_path(accessory.id), class: "btn btn-primary btn-large"%></p>
+						<!--<%= button_to 'Agregar al carrito', line_items_path(:product_id => accessory), class: "btn btn-primary btn-large"%>-->
+						<%= link_to  line_items_path(:product_id => accessory), class: "btn btn-primary btn-large", :method => :post do%>
+						<i class="icon-shopping-cart icon-white"></i> Agregar al carrito 
+						<% end%>
 					</div>
 				</div>
 			</div> <!--/catItem-->

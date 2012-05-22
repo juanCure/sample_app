@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nombre" %><br />
     <%= f.text_field :name, :size => 40 %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :address, "Dirección" %><br />
     <%= f.text_area :address, :rows => 3, :cols => 40 %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, "Correo" %><br />
     <%= f.email_field :email, :size => 40 %>
   </div>
   <div class="field">
-    <%= f.label :pay_type %><br />
+    <%= f.label :pay_type, "Tipo de pago" %><br />
     <%= f.select :pay_type, Order::PAYMENT_TYPES,
     				:prompt => 'Selecciona un metodo de pago'%>
   </div>
   <div class="actions">
-    <%= f.submit 'Place Order'%>
+    <%= f.submit 'Enviar Orden', class: "btn btn-large btn-primary"%>
   </div>
 <% end %>

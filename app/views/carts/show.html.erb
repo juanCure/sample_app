@@ -1,16 +1,23 @@
-<div class="cart_title">Tu Carrito de Compras</div>
-<table>
+<br /><br />
+<div class="cart_title"><h2>Tu Carrito de Compras</h2></div>
+<table class="table table-condensed">
+	<thead>
+		<tr><th>Cantidad</th>
+			<th>Nombre</th>
+			<th>Precio</th>
+		</tr>
+	</thead>
 	<% @cart.line_items.each do |item| %>
 	<tr>
-		<td><%= item.quantity%> &times; </td>
+		<td><%= item.quantity%> </td>
 		<td><%= item.product.name%></td>
-		<td class="item_price"> <%= number_to_currency(item.total_price)%></td>
+		<td> <%= number_to_currency(item.total_price)%></td>
 	</tr>
 	<%end%>
-	<tr class="total_line">
-		<td colspan="2">Total</td>
-		<td class="total_cell"> <%= number_to_currency(@cart.total_price)%></td>
+	<tr>
+		<td colspan="2" style="text-align: right">Total</td>
+		<td> <%= number_to_currency(@cart.total_price)%></td>
 	</tr>
 </table>
-<%= button_to "Checkout", new_order_path, :method => :get %>
-<%= button_to 'Vaciar Carrito', @cart, :method => :delete, :confirm => 'Estas seguro?'%>
+<%= button_to "Comprar", new_order_path, :method => :get, class: "btn btn-success" %>
+<%= button_to 'Vaciar Carrito', @cart, :method => :delete, class: "btn btn-danger", :confirm => 'Estas seguro?'%>
