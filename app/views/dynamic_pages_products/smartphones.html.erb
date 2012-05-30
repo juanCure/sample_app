@@ -33,7 +33,7 @@
 			<div class="catItem">
 				<div class="itemMedia">
 					<!--<img src="<%= raw smartphone.image %>" style="height:110px;width:160px;border-width:0px;"/>-->
-					<%= link_to image_tag(smartphone.image), line_items_path(:product_id => smartphone), :method => :post%>
+					<%= link_to image_tag(smartphone.image, :size => "110x110"), line_items_path(:product_id => smartphone), :method => :post%>
 				</div>
 				<div class="itemInfo">
 					<h3><%= smartphone.mark%> <%=smartphone.name%> <%= smartphone.model%></h3>
