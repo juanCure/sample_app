@@ -1,0 +1,5 @@
+es:
+  will_paginate:
+    next: siguiente →
+    page_gap: ! '&hellip;'
+    previous: ← atrás 
