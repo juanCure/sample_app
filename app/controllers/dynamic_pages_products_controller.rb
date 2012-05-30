@@ -36,7 +36,7 @@ class DynamicPagesProductsController < ApplicationController
     #@accessories = Product.select("name, price, model, description").where("category = 3")
     @accessories = Product.where("category = 4 OR category = 2").paginate(page: params[:page])
     if params[:mark]
-      @accessories = Product.where("category = 4 OR category = 2 AND mark = ?", params[:mark]).paginate(page: params[:page])
+      @accessories = Product.where(:category => [2,4], :mark => params[:mark]).paginate(page: params[:page])
     end
     if params[:category]
       @accessories = Product.where("category = ? ", params[:category]).paginate(page: params[:page])
