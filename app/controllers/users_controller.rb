@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       # Handle a successful save.
 	  sign_in @user
-	  flash[:success] = "Bienvenido a Mobile"
+	  flash[:success] = "Bienvenido a eureka"
 	  redirect_to root_url
     else
       render 'new'
